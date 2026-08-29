@@ -305,12 +305,13 @@
 
         </div>
     </div>
-<audio id="gritoAudio" preload="auto">
-        <!-- COLOQUE AQUI O LINK DIRETO PARA UM ARQUIVO MP3 DO GRITO -->
-        <!-- Este é apenas um link de exemplo de um grito curto de estádio -->
-        <source src="https://www.myinstants.com/pt/instant/vai-corinthians-estouradasso-93/" type="audio/mpeg">
+
+    <!-- Elemento de áudio configurado com link direto válido .mp3 -->
+    <audio id="gritoAudio" preload="auto">
+        <source src="https://www.myinstants.com/media/sounds/vai-corinthians-grito.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
+
     <script>
         function revelarConvite() {
             document.getElementById('welcome-screen').style.display = 'none';
@@ -319,6 +320,7 @@
 
         function mostrarSegredo() {
             const segredo = document.getElementById('mensagem-surpresa-extra');
+            const audio = document.getElementById('gritoAudio');
             
             // Alterna visibilidade da mensagem
             if (segredo.style.display === 'block') {
@@ -326,14 +328,11 @@
             } else {
                 segredo.style.display = 'block';
                 
-                // Dispara o som de "Vai Corinthians!" usando a voz nativa do navegador
-                if ('speechSynthesis' in window) {
-                    const utterance = new SpeechSynthesisUtterance("Vai Corinthians!");
-                    utterance.lang = 'pt-BR';
-                    utterance.pitch = 1.2; // Deixa a voz mais empolgada
-                    utterance.rate = 1.1;  // Um pouco mais rápida e enérgica
-                    window.speechSynthesis.speak(utterance);
-                }
+                // Toca o áudio real do grito de torcida configurado na tag <audio>
+                audio.currentTime = 0;
+                audio.play().catch(error => {
+                    console.log("O navegador impediu o autoplay de áudio: ", error);
+                });
             }
         }
     </script>
