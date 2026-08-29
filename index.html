@@ -42,7 +42,7 @@
             overflow: hidden;
         }
 
-        /* Marca d'água Corinthians */
+        /* Símbolo do Corinthians no Fundo (Marca d'água) */
         .card::before {
             content: "";
             position: absolute;
@@ -65,25 +65,22 @@
             z-index: 1;
         }
 
-        /* Estilos Gerais de Texto */
-        h1 {
+        #welcome-screen h1 {
             font-family: 'Caveat', cursive;
             font-size: 3.5rem;
             color: #a63a2b;
             margin-bottom: 10px;
-        }
-        
-        .name-aniversariante {
-            font-family: 'Caveat', cursive;
-            font-size: 2.8rem;
-            color: #a63a2b;
-            margin-bottom: 20px;
+            line-height: 1;
         }
 
-        p { font-size: 1.1rem; margin-bottom: 20px; color: #355e3b; font-weight: 600; }
+        #welcome-screen p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #355e3b;
+            font-weight: 600;
+        }
 
-        /* Botões */
-        .btn-acao {
+        .btn-entrar {
             background-color: #355e3b;
             color: #fff;
             border: none;
@@ -95,46 +92,153 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(53, 94, 59, 0.4);
             text-transform: uppercase;
+        }
+
+        .btn-entrar:hover {
+            background-color: #244027;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(53, 94, 59, 0.6);
+        }
+
+        #invite-screen {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .badge-lugar {
+            background-color: #355e3b;
+            color: #f4ebd0;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .title-sambar {
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            color: #a63a2b;
+            line-height: 0.9;
             margin-bottom: 15px;
         }
 
-        .btn-acao:hover { background-color: #244027; transform: translateY(-3px); }
+        .subtitle {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
 
-        /* Telas */
-        #invite-screen, #audio-controls { display: none; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .name-aniversariante {
+            font-family: 'Caveat', cursive;
+            font-size: 2.8rem;
+            color: #a63a2b;
+            margin-bottom: 20px;
+        }
 
-        /* Bloco de Surpresa */
         .surpresa-box {
             border: 2px dashed #355e3b;
             background: #faf6ed;
             padding: 15px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            position: relative;
         }
-        .surpresa-texto { text-decoration: line-through; color: #a63a2b; font-weight: bold; }
-        .nao-e-mais { background: #d4a373; color: #fff; font-family: 'Caveat', cursive; font-size: 1.4rem; padding: 2px 10px; transform: rotate(-1deg); display: inline-block; margin-top: 5px;}
 
-        /* Botão de Áudio */
-        .btn-som {
-            background-color: #a63a2b;
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            width: 100%;
+        .surpresa-texto {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #a63a2b;
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+
+        .nao-e-mais {
+            background: #d4a373;
+            color: #fff;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            padding: 2px 10px;
+            display: inline-block;
+            transform: rotate(-2deg);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-list {
+            text-align: left;
+            margin-top: 15px;
+            border-top: 2px solid #e0d4be;
+            padding-top: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .info-item span.icon {
+            font-size: 1.2rem;
+            margin-right: 12px;
+            background: #eedecc;
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+            border-radius: 50%;
         }
-        .btn-som:hover { background-color: #8c2f22; }
-        .icone-som { font-size: 1.5rem; }
 
+        .info-item strong {
+            display: block;
+            color: #355e3b;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .info-item p {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .btn-surpresa {
+            background-color: #a63a2b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .btn-surpresa:hover {
+            background-color: #8c2f22;
+        }
+
+        #mensagem-surpresa-extra {
+            display: none;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #355e3b;
+            font-style: italic;
+            background: #f0e6d2;
+            padding: 8px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -145,13 +249,15 @@
             <div id="welcome-screen">
                 <p>🎶 Convite Especial 🎶</p>
                 <h1>Vai rolar um samba!</h1>
-                <p>Toque abaixo para abrir o convite.</p>
-                <button class="btn-acao" onclick="revelarConvite()">Abrir Convite 🥁</button>
+                <p>Toque no botão abaixo para abrir o seu convite exclusivo.</p>
+                <button class="btn-entrar" onclick="revelarConvite()">Abrir Convite 🥁</button>
             </div>
 
             <div id="invite-screen">
-                <h2>Vamos Sambar!</h2>
-                <p class="subtitle">Aniversário da</p>
+                <div class="badge-lugar">EULÁLIA CASA DE SAMBA</div>
+                <h2 class="title-sambar">Vamos Sambar!</h2>
+                
+                <p class="subtitle">Para festejar o aniversário da</p>
                 <div class="name-aniversariante">Érica Lemos!</div>
 
                 <div class="surpresa-box">
@@ -159,62 +265,76 @@
                     <div class="nao-e-mais">NÃO É MAIS... a Érica não é fácil!</div>
                 </div>
 
-                <button id="btn-liberar-som" class="btn-som" onclick="prepararSom()">
-                    <span class="icone-som">🔊</span> Ativar Grito da Torcida
-                </button>
-
-                <div id="audio-controls">
-                    <p style="color: #355e3b; font-size: 1rem; margin-top: 10px;">✅ Áudio pronto! Clique abaixo:</p>
-                    <button class="btn-som" onclick="tocarGrito()">
-                        <span class="icone-som">📣</span> GRITAR VAI CORINTHIANS!
-                    </button>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="icon">📅</span>
+                        <div>
+                            <strong>Data</strong>
+                            <p>30/08 - Domingo</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">⏰</span>
+                        <div>
+                            <strong>Horário</strong>
+                            <p>12h</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <strong>Local</strong>
+                            <p>Eulália Casa de Samba</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">🗺️</span>
+                        <div>
+                            <strong>Endereço</strong>
+                            <p>Rua Cavazzola 64, Vila Olímpia - São Paulo</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div id="mensagem-final" style="display: none; margin-top: 15px; font-weight: bold;">
-                   Prepare o fígado, o pé de valsa e o grito! 🏴🏳️🍻
+                <button class="btn-surpresa" onclick="mostrarSegredo()">🎁 Clique para um recado secreto</button>
+                <div id="mensagem-surpresa-extra">
+                    Prepare o fígado, o pé de valsa e o grito de Vai Corinthians! 🏴🏳️🍻
                 </div>
 
             </div>
+
         </div>
     </div>
-
-    <audio id="gritoAudio" preload="auto">
+<audio id="gritoAudio" preload="auto">
+        <!-- COLOQUE AQUI O LINK DIRETO PARA UM ARQUIVO MP3 DO GRITO -->
+        <!-- Este é apenas um link de exemplo de um grito curto de estádio -->
         <source src="https://www.myinstants.com/media/sounds/vai-corinthians-grito.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
-
     <script>
-        const welcomeScreen = document.getElementById('welcome-screen');
-        const inviteScreen = document.getElementById('invite-screen');
-        const btnLiberar = document.getElementById('btn-liberar-som');
-        const audioControls = document.getElementById('audio-controls');
-        const mensagemFinal = document.getElementById('mensagem-final');
-        const audio = document.getElementById('gritoAudio');
-
         function revelarConvite() {
-            welcomeScreen.style.display = 'none';
-            inviteScreen.style.display = 'block';
-            inviteScreen.style.animation = 'fadeIn 0.8s ease-in-out';
+            document.getElementById('welcome-screen').style.display = 'none';
+            document.getElementById('invite-screen').style.display = 'block';
         }
 
-        // Passo 1: O usuário clica para liberar o som (requisito do navegador)
-        function prepararSom() {
-            btnLiberar.style.display = 'none'; // Esconde o botão de liberar
-            audioControls.style.display = 'block'; // Mostra o botão de gritar
-            mensagemFinal.style.display = 'block';
+        function mostrarSegredo() {
+            const segredo = document.getElementById('mensagem-surpresa-extra');
             
-            // Carrega o áudio e tenta dar play/pause rápido para "desbloquear" o som no iOS/Chrome
-            audio.play().then(() => {
-                audio.pause();
-                audio.currentTime = 0;
-            }).catch(error => console.log("Erro ao preparar som: ", error));
-        }
-
-        // Passo 2: O usuário clica para tocar o grito
-        function tocarGrito() {
-             // Reinicia o áudio para garantir que toque do começo se clicado várias vezes
-            audio.currentTime = 0;
-            audio.play().catch(error => alert("Erro ao reproduzir áudio: " + error));
+            // Alterna visibilidade da mensagem
+            if (segredo.style.display === 'block') {
+                segredo.style.display = 'none';
+            } else {
+                segredo.style.display = 'block';
+                
+                // Dispara o som de "Vai Corinthians!" usando a voz nativa do navegador
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance("Vai Corinthians!");
+                    utterance.lang = 'pt-BR';
+                    utterance.pitch = 1.2; // Deixa a voz mais empolgada
+                    utterance.rate = 1.1;  // Um pouco mais rápida e enérgica
+                    window.speechSynthesis.speak(utterance);
+                }
+            }
         }
     </script>
 </body>
